@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ums:
+    build:
+      context:
+        .
+    container_name: ums
+    environment:
+      AWS_REGION: ${AWS_REGION:-ap-south-1}
+      AWS_ACCESS_KEY: ${AWC_ACCESS_KEY:-test}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
+    ports:
+      - "9999:9999"

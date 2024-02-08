@@ -2,6 +2,18 @@ debug: true
 
 server:
   port: 9999
+  ssl:
+    enabled: true
+      # The format used for the keystore. It could be set to JKS in case it is a JKS file
+    key-store-type: PKCS12
+      # The path to the keystore containing the certificate
+      # Generate via
+      # keytool -genkeypair -alias ums-self-signed-cert -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore ums-self-signed-cert.p12 -validity 3650
+    key-store: classpath:ums-self-signed-cert.p12
+      # The password used to generate the certificate
+    key-store-password: password
+      # The alias mapped to the certificate
+    key-alias: ums-self-signed-cert
 
 logging:
   level:
@@ -26,9 +38,7 @@ cognito:
   domain: https://spring-app.auth.ap-south-1.amazoncognito.com
   issuer-uri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_h1l0zAs0z
   jwks-uri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_h1l0zAs0z/.well-known/jwks.json
-
-jwt:
   client-id: "2r7cqks9bo59crtb9qm1mn3b99"
-  validation:
-    check-revoked: true
-    check-client-id: true
+  client-secret: "14sc5ram1jv85kfqdmua6urh719re5opd50j9pudf0rclpncfneo"
+  client-redirect-uri: "https://127.0.0.1:9999/oauth2/callback"
+

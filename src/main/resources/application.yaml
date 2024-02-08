@@ -1,0 +1,34 @@
+debug: true
+
+server:
+  port: 9999
+
+logging:
+  level:
+    com.example.ums: trace
+    org.springframework: trace
+
+spring:
+  application:
+    name: ums
+  # colored console log messsages
+  output:
+    ansi:
+      enabled: always
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${cognito.issuer-uri}
+          jwks-uri: ${cognito.jwks-uri}
+
+cognito:
+  domain: https://spring-app.auth.ap-south-1.amazoncognito.com
+  issuer-uri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_h1l0zAs0z
+  jwks-uri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_h1l0zAs0z/.well-known/jwks.json
+
+jwt:
+  client-id: "2r7cqks9bo59crtb9qm1mn3b99"
+  validation:
+    check-revoked: true
+    check-client-id: true

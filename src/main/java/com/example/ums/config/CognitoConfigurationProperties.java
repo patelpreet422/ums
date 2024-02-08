@@ -14,4 +14,6 @@ public class CognitoConfigurationProperties {
     private String clientId = "";
     private String clientSecret = "";
     private String clientRedirectUri = "";
+    private String accessKey = "";
+    private String secretKey= "";
 }

@@ -1,6 +1,5 @@
 package com.example.ums.config;
 
-
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,36 +27,39 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests((authorize) -> authorize
                         .anyRequest()
-                        .permitAll()
-                )
+                        .permitAll())
+                .formLogin(formLoginConfig -> formLoginConfig.disable())
+                .csrf(csrfConfigurer -> csrfConfigurer.disable())
                 .build();
         // return http
-        //         .authorizeHttpRequests((authorize) -> authorize
-        //                 .anyRequest()
-        //                 .authenticated()
-        //         )
-        //         .oauth2ResourceServer((oauth2ResourceServer) -> oauth2ResourceServer.jwt(
-        //                 jwtConfigurer -> jwtConfigurer.decoder(accessTokenJwtDecoder)
-        //         ))
-        //         .build();
+        // .authorizeHttpRequests((authorize) -> authorize
+        // .anyRequest()
+        // .authenticated()
+        // )
+        // .oauth2ResourceServer((oauth2ResourceServer) -> oauth2ResourceServer.jwt(
+        // jwtConfigurer -> jwtConfigurer.decoder(accessTokenJwtDecoder)
+        // ))
+        // .build();
     }
 
     // @Bean
     // public JwtAuthenticationConverter jwtAuthenticationConverter() {
-    //     JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
-    //     jwtAuthenticationConverter.setPrincipalClaimName("username");
-    //     jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwt ->
-    //             Stream.of(
-    //                             Optional.ofNullable((List<String>) jwt.getClaims().get("cognito:groups"))
-    //                                     .orElse(Collections.<String>emptyList()
-    //                                     )
-    //                     )
-    //                     .flatMap(java.util.Collection::stream)
-    //                     .map(group -> new SimpleGrantedAuthority("ROLE_" + group.toLowerCase(Locale.ROOT)))
-    //                     .collect(Collectors.toSet())
-    //     );
+    // JwtAuthenticationConverter jwtAuthenticationConverter = new
+    // JwtAuthenticationConverter();
+    // jwtAuthenticationConverter.setPrincipalClaimName("username");
+    // jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwt ->
+    // Stream.of(
+    // Optional.ofNullable((List<String>) jwt.getClaims().get("cognito:groups"))
+    // .orElse(Collections.<String>emptyList()
+    // )
+    // )
+    // .flatMap(java.util.Collection::stream)
+    // .map(group -> new SimpleGrantedAuthority("ROLE_" +
+    // group.toLowerCase(Locale.ROOT)))
+    // .collect(Collectors.toSet())
+    // );
     //
-    //     return jwtAuthenticationConverter;
+    // return jwtAuthenticationConverter;
     // }
 
 }

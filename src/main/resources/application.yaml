@@ -21,6 +21,8 @@ logging:
     org.springframework: trace
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: ums
   # colored console log messsages
@@ -41,4 +43,6 @@ cognito:
   client-id: "2r7cqks9bo59crtb9qm1mn3b99"
   client-secret: "14sc5ram1jv85kfqdmua6urh719re5opd50j9pudf0rclpncfneo"
   client-redirect-uri: "https://127.0.0.1:9999/oauth2/callback"
+  access-key: ${AWS_ACCESS_KEY}
+  secret-key: ${AWS_SECRET_KEY}
 

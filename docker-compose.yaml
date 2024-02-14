@@ -9,5 +9,6 @@ services:
       AWS_REGION: ${AWS_REGION:-ap-south-1}
       AWS_ACCESS_KEY: ${AWC_ACCESS_KEY:-test}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
+      AWS_ENDPOINT_URL: ${AWS_ENDPOINT_URL:-http://localhost:4566}
     ports:
       - "9999:9999"

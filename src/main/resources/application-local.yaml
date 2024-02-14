@@ -38,6 +38,9 @@ spring:
 
 cognito:
   userpool-id: ap-south-1_h1l0zAs0z
+  issuer-uri: https://cognito-idp.ap-south-1.amazonaws.com/${cognito.userpool-id}
+  jwks-uri: https://cognito-idp.ap-south-1.amazonaws.com/${cognito.userpool-id}/.well-known/jwks.json
+  domain: https://spring-app.auth.ap-south-1.amazoncognito.com
   client-id: "2r7cqks9bo59crtb9qm1mn3b99"
   client-secret: "14sc5ram1jv85kfqdmua6urh719re5opd50j9pudf0rclpncfneo"
   client-redirect-uri: "https://127.0.0.1:9999/oauth2/callback"

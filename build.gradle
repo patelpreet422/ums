@@ -31,10 +31,6 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-test'
 	testImplementation 'com.github.tomakehurst:wiremock:3.0.1'
 
-	implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-	// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-apache
-	implementation 'com.squareup.okhttp3:okhttp-apache:3.13.1'
-
 	implementation 'software.amazon.awssdk:cognitoidentity:2.20.144'
 	implementation 'software.amazon.awssdk:cognitoidentityprovider:2.20.144'
 }

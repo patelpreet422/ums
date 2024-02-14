@@ -8,12 +8,8 @@ import lombok.Data;
 @ConfigurationProperties(prefix = "cognito")
 @Data
 public class CognitoConfigurationProperties {
-    private String domain = "";
-    private String jwksUri = "";
-    private String issuerUri = "";
+    private String userpoolId = "";
     private String clientId = "";
     private String clientSecret = "";
     private String clientRedirectUri = "";
-    private String accessKey = "";
-    private String secretKey= "";
 }

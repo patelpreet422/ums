@@ -3,7 +3,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN gradle wrapper
 RUN ./gradlew bootJar
 
 ENV AWS_REGION ap-south-1
